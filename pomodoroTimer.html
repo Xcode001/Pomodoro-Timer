@@ -13,6 +13,7 @@
  			<i class="glyphicon glyphicon-play"></i>
  		</button>
  	</h2>
+  <h3>{{title}}</h3>
  	<div class="well">
  		<div class="pomodoro_timer">
  			<span>{{minute}}</span>:<span>{{second}}</span>
@@ -40,6 +41,11 @@
   				timestamp: 0
   			}
   		},
+      computed: {
+        title: function(){
+          return this.pomodoroState === POMODORO_STATES.WORK ? "Work!": "Rest!"
+        }
+      },
   		methods: {
   			start: function() {
   				this._tick();
