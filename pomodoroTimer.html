@@ -2,20 +2,27 @@
 <html>
 <head>
 	<title>Pomodoro Timer</title>
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+      button:disabled i {
+         color: gray;
+      }
+  </style>
 </head>
 <body>
 
  <div id="app" class="container">
  	<h2>
  		<span>Pomodoro</span>
- 		<button :disabled="state==='started'" @click="start()">
- 			<i class="glyphicon glyphicon-play"></i>
- 		</button>
-    <button :disabled="state !=='started'" @click="pause()">
+ 		<button :disabled="state==='started'" title="start" @click="start()">
+      <i class="glyphicon glyphicon-play"></i>
+    </button>
+    <button :disabled="state!=='started'" title="pause" @click="pause()">
       <i class="glyphicon glyphicon-pause"></i>
     </button>
-    <button :disabled="state==='started' && state !== 'paused'" @click="stop()">
+    <button :disabled="state!=='started' && state !== 'paused'" title="stop" @click="stop()">
       <i class="glyphicon glyphicon-stop"></i>
     </button>
  	</h2>
